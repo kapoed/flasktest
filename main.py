@@ -18,16 +18,8 @@ def promotion():
     return "</br>".join(["Человечество вырастает из детства.", "Человечеству мала одна планета.",
                          "Мы сделаем обитаемыми безжизненные пока планеты.", "И начнем с Марса!", "Присоединяйся!"])
 
-
 @app.route('/image_mars')
 def image_mars():
-    return "</br>".join(["<h1>Жди нас, Марс!</h1>",
-                         f'''<img src="{url_for('static', filename='img/mars.jpg')}">''',
-                         "Вот она какая, красная планета"])
-
-
-@app.route('/im')
-def im():
     return f'''<!doctype html>
                 <html lang="en">
                     <head>
