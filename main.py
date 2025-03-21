@@ -18,6 +18,7 @@ def promotion():
     return "</br>".join(["Человечество вырастает из детства.", "Человечеству мала одна планета.",
                          "Мы сделаем обитаемыми безжизненные пока планеты.", "И начнем с Марса!", "Присоединяйся!"])
 
+
 @app.route('/image_mars')
 def image_mars():
     return f'''<!doctype html>
@@ -33,6 +34,7 @@ def image_mars():
                         <div>Вот она какая, красная планета</div>
                     </body>
                 </html>'''
+
 
 @app.route('/promotion_image')
 def promotion_image():
@@ -58,6 +60,7 @@ def promotion_image():
                         <div class="p-3 mb-2 bg-danger text-red">Присоединяйся!</div>
                     </body>
                 </html>'''
+
 
 @app.route('/astronaut_selection')
 def astronaut_selection():
@@ -176,6 +179,7 @@ def astronaut_selection():
         print(request.form['sex'])
         return "Форма отправлена"
 
+
 @app.route('/choice/<planet_name>')
 def choice(planet_name):
     return f'''<!doctype html>
@@ -198,6 +202,30 @@ def choice(planet_name):
                         <div class="p-3 mb-2 bg-warning text-yellow">Наконец, она просто красива!</div>
                     </body>
                 </html>'''
+
+
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def results(nickname, level, rating):
+    return f'''<!doctype html>
+                <html lang="en">
+                    <head>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                        <link rel="stylesheet" 
+                        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                        crossorigin="anonymous">
+                        <title>Колонизация</title>
+                    </head>
+                    <body>
+                        <h1>Результаты отбора</h1> 
+                        <h3>Претендента {nickname} на участие в миссии:</h3> 
+                        <div class="p-3 mb-2 bg-success text-white">Поздравляем ваш рейтинг после {level} этапа отбора</div>
+                        <div class="p-3 mb-2 bg-success text-white">cоставляет {rating}!</div>
+                        <div class="p-3 mb-2 bg-info text-cyan">Желаем удачи!</div>
+                    </body>
+                </html>'''
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1', debug=True)
