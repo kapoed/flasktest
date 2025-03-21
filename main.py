@@ -2,15 +2,9 @@ from flask import Flask, url_for, render_template, request
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def indexx():
-    return "Миссия Колонизация Марса"
-
-
-@app.route('/index')
-def index():
-    return "И на Марсе будут яблони цвести!"
+@app.route('/index/<title>')
+def index(title):
+    return render_template('base.html', title=title)
 
 
 @app.route('/promotion')
