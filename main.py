@@ -12,6 +12,9 @@ def index(title):
 def training(prof):
     return render_template('training.html', prof=prof)
 
+@app.route('/list_prof/<list>')
+def list_prof(list):
+    return render_template('list_prof.html', list=list)
 
 @app.route('/promotion')
 def promotion():

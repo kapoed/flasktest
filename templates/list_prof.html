@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% set list_prof = ['Строитель', 'Инженер по терраформированию', 'Метеоролог', 'Оператор марсохода',
+                        'Инженер жизнеобеспечения', 'Астрогеолог', 'Экзобиолог', 'Специалист по радиационной защите'] %}
+    <h2>Список профессий</h2>
+    {% if list == 'ol' %}
+        {% for prof in list_prof %}
+            <div>{{ loop.index }}. {{ prof }}</div>
+        {% endfor %}
+    {% elif list == 'ul' %}
+        {% for prof in list_prof %}
+            <li>{{ prof }}</li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
