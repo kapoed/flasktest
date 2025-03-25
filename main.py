@@ -46,6 +46,10 @@ def distribution():
                            crew=['Владимир Ленин', 'Брэд Питт', 'Жак Фреско', 'Артём Дзюба', 'Дуэйн Джонсон',
                                  'Павел Пламенев'])
 
+@app.route('/table/<gender>/<int:age>')
+def table(gender, age):
+    return render_template('table.html', gender=gender, age=age)
+
 
 @app.route('/promotion')
 def promotion():
