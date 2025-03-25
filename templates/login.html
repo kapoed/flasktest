@@ -1,46 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<img src="{{ url_for('static', filename='img/mars.png') }}", align="left">
-<h1>Аварийный доступ</h1>
-<form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-        id астронавта<br>
-        {{ form.username(class="form-control") }}<br>
-        {% for error in form.username.errors %}
-          <div class="alert alert-danger" role="alert">
-          {{ error }}
-          </div>
-        {% endfor %}
-    </p>
-    <p>
-        Пароль астронавта<br>
-        {{ form.password(class="form-control", type="password") }}<br>
-        {% for error in form.password.errors %}
-          <div class="alert alert-danger" role="alert">
-          {{ error }}
-          </div>
-        {% endfor %}
-    </p>
-    <p>
-        id капитана<br>
-        {{ form.username(class="form-control") }}<br>
-        {% for error in form.username.errors %}
-          <div class="alert alert-danger" role="alert">
-          {{ error }}
-          </div>
-        {% endfor %}
-    </p>
-    <p>
-        Пароль капитана<br>
-        {{ form.password(class="form-control", type="password") }}<br>
-        {% for error in form.password.errors %}
-          <div class="alert alert-danger" role="alert">
-          {{ error }}
-          </div>
-        {% endfor %}
-    </p>
-    <p>{{ form.submit(type="submit", class="btn btn-primary", value="Доступ") }}</p>
-</form>
+    <img src="{{ url_for('static', filename='img/mars.png') }}", align="left">
+    <h1>Аварийный доступ</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            id астронавта<br>
+            {{ form.username(class="form-control") }}<br>
+            {% for error in form.username.errors %}
+              <div class="alert alert-danger" role="alert">
+              {{ error }}
+              </div>
+            {% endfor %}
+        </p>
+        <p>
+            Пароль астронавта<br>
+            {{ form.password(class="form-control", type="password") }}<br>
+            {% for error in form.password.errors %}
+              <div class="alert alert-danger" role="alert">
+              {{ error }}
+              </div>
+            {% endfor %}
+        </p>
+        <p>
+            id капитана<br>
+            {{ form.username(class="form-control") }}<br>
+            {% for error in form.username.errors %}
+              <div class="alert alert-danger" role="alert">
+              {{ error }}
+              </div>
+            {% endfor %}
+        </p>
+        <p>
+            Пароль капитана<br>
+            {{ form.password(class="form-control", type="password") }}<br>
+            {% for error in form.password.errors %}
+              <div class="alert alert-danger" role="alert">
+              {{ error }}
+              </div>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary", value="Доступ") }}</p>
+    </form>
 {% endblock %}

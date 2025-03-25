@@ -40,6 +40,13 @@ def login():
     return render_template('login.html', title='Аварийный доступ', form=form)
 
 
+@app.route('/distribution')
+def distribution():
+    return render_template('distribution.html',
+                           crew=['Владимир Ленин', 'Брэд Питт', 'Жак Фреско', 'Артём Дзюба', 'Дуэйн Джонсон',
+                                 'Павел Пламенев'])
+
+
 @app.route('/promotion')
 def promotion():
     return "</br>".join(["Человечество вырастает из детства.", "Человечеству мала одна планета.",
