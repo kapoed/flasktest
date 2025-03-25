@@ -10,5 +10,7 @@
         {% for prof in list_prof %}
             <li>{{ prof }}</li>
         {% endfor %}
+    {% else %}
+        <div>Передан неверный параметр</div>
     {% endif %}
 {% endblock %}
