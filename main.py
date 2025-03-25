@@ -10,8 +10,7 @@ def index(title):
 
 @app.route('/training/<prof>')
 def training(prof):
-    return render_template('training.html', prof=prof, img_science=url_for('static', filename='img/right_arrow.jpg'),
-                           img_engineering=url_for('static', filename='img/left_arrow.jpg'))
+    return render_template('training.html', prof=prof)
 
 
 @app.route('/promotion')

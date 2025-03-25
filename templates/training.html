@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if prof == 'врач' or prof == 'метеоролог' %}
-        <h2>Научные симуляторы</h2>
-        <img src="{{ url_for('static', filename='img/right_arrow.jpg') }}", width="400">
-        <h3 class="r">Направо</h3>
-    {% elif prof == 'инженер' or prof == 'строитель' %}
+    {% if prof == 'инженер' or prof == 'строитель' %}
         <h2>Инженерные тренажёры</h2>
         <img src="{{ url_for('static', filename='img/left_arrow.jpg') }}", width="200">
         <h3 class="r">Налево</h3>
+    {% else %}
+        <h2>Научные симуляторы</h2>
+        <img src="{{ url_for('static', filename='img/right_arrow.jpg') }}", width="400">
+        <h3 class="r">Направо</h3>
     {% endif %}
 {% endblock %}
