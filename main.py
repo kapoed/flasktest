@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
+
 class LoginForm(FlaskForm):
     username = StringField('Логин', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
@@ -22,9 +23,14 @@ def index(title):
 def training(prof):
     return render_template('training.html', prof=prof)
 
+
 @app.route('/list_prof/<list>')
 def list_prof(list):
-    return render_template('list_prof.html', list=list)
+    return render_template('list_prof.html', list=list,
+                           list_prof=['Строитель', 'Инженер по терраформированию', 'Метеоролог', 'Оператор марсохода',
+                                      'Инженер жизнеобеспечения', 'Астрогеолог', 'Экзобиолог',
+                                      'Специалист по радиационной защите'])
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -32,6 +38,7 @@ def login():
     if form.validate_on_submit():
         return redirect('/success')
     return render_template('login.html', title='Аварийный доступ', form=form)
+
 
 @app.route('/promotion')
 def promotion():
