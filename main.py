@@ -1,5 +1,7 @@
 from flask import Flask, url_for, render_template, request, redirect
 from forms.loginform import LoginForm
+from data import db_session
+from data.users import User
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -36,10 +38,6 @@ def distribution():
     return render_template('distribution.html',
                            crew=['Владимир Ленин', 'Брэд Питт', 'Жак Фреско', 'Артём Дзюба', 'Дуэйн Джонсон',
                                  'Павел Пламенев'])
-
-@app.route('/table/<gender>/<int:age>')
-def table(gender, age):
-    return render_template('table.html', gender=gender, age=age)
 
 
 @app.route('/promotion')
@@ -257,4 +255,43 @@ def results(nickname, level, rating):
 
 
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1', debug=True)
+    db_session.global_init("db/blogs.db")
+    user1 = User()
+    user1.surname = "Scott"
+    user1.name = "Ridley"
+    user1.email = "scott_chief@mars.org"
+    user1.address = "module_1"
+    user1.speciality = "research engineer"
+    user1.position = "captain"
+    user1.age = "21"
+    user2 = User()
+    user2.surname = "John-Davy"
+    user2.name = "Harris"
+    user2.email = "JDH@mars.org"
+    user2.address = "module_2"
+    user2.speciality = "genius"
+    user2.position = "chief assistant"
+    user2.age = "22"
+    user3 = User()
+    user3.surname = "Dave"
+    user3.name = "Johns"
+    user3.email = "dave_qwe@mars.org"
+    user3.address = "module_3"
+    user3.speciality = "clown"
+    user3.position = "passenger"
+    user3.age = "19"
+    user4 = User()
+    user4.surname = "Raya"
+    user4.name = "Aber"
+    user4.email = "prime@mars.org"
+    user4.address = "module_4"
+    user4.speciality = "scientist"
+    user4.position = "commander"
+    user4.age = "21"
+    db_sess = db_session.create_session()
+    db_sess.add(user1)
+    db_sess.add(user2)
+    db_sess.add(user3)
+    db_sess.add(user4)
+    db_sess.commit()
+    # app.run(port=8080, host='127.0.0.1', debug=True)
