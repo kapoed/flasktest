@@ -18,7 +18,7 @@ def all_jobs():
     return jobs
 
 
-@app.route('/jobs')
+@app.route('/')
 def jobs():
     return render_template('jobs.html', jobs=all_jobs())
 
