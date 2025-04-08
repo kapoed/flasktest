@@ -11,7 +11,6 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 def all_jobs():
     jobs = []
-    db_session.global_init("db/blogs.db")
     db_sess = db_session.create_session()
     for job in db_sess.query(Jobs).all():
         jobs.append(job)
@@ -271,4 +270,5 @@ def results(nickname, level, rating):
 
 
 if __name__ == '__main__':
+    db_session.global_init("db/blogs.db")
     app.run(port=8080, host='127.0.0.1', debug=True)
