@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 style="text-align:center;">Все работы</h2>
+    {% for job in jobs %}
+        <h3>Action # {{ job.id }}</h3>
+        <table style="width: 100%; table-layout: fixed;">
+            <tr class="bgg">
+                <td>Title of activity</td>
+                <td>Time leader</td>
+                <td>Duration</td>
+                <td>List of collaborators</td>
+                <td>is finished</td>
+            </tr>
+            <tr>
+                <td>{{ job.job }}</td>
+                <td>{{ job.team_leader }}</td>
+                <td>{{ job.work_size }}</td>
+                <td>{{ job.collaborators }}</td>
+                <td>{{ job.is_finished }}</td>
+            </tr>
+        </table>
+    {% endfor %}
+{% endblock %}
